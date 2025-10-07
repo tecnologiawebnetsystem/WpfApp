@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Produto>
+    <Id>1</Id>
+    <Nome>Notebook Dell Inspiron 15</Nome>
+    <Codigo>NB-DELL-001</Codigo>
+    <Valor>3500.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>2</Id>
+    <Nome>Mouse Logitech MX Master 3</Nome>
+    <Codigo>MS-LOG-002</Codigo>
+    <Valor>450.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>3</Id>
+    <Nome>Teclado Mecânico Keychron K2</Nome>
+    <Codigo>KB-KEY-003</Codigo>
+    <Valor>650.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>4</Id>
+    <Nome>Monitor LG UltraWide 29"</Nome>
+    <Codigo>MN-LG-004</Codigo>
+    <Valor>1800.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>5</Id>
+    <Nome>Webcam Logitech C920</Nome>
+    <Codigo>WC-LOG-005</Codigo>
+    <Valor>550.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>6</Id>
+    <Nome>Headset HyperX Cloud II</Nome>
+    <Codigo>HS-HYP-006</Codigo>
+    <Valor>480.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>7</Id>
+    <Nome>SSD Samsung 1TB NVMe</Nome>
+    <Codigo>SSD-SAM-007</Codigo>
+    <Valor>750.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>8</Id>
+    <Nome>Memória RAM Corsair 16GB</Nome>
+    <Codigo>RAM-COR-008</Codigo>
+    <Valor>420.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>9</Id>
+    <Nome>Placa de Vídeo RTX 3060</Nome>
+    <Codigo>GPU-NVI-009</Codigo>
+    <Valor>2800.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>10</Id>
+    <Nome>Processador Intel i7-12700K</Nome>
+    <Codigo>CPU-INT-010</Codigo>
+    <Valor>2200.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>11</Id>
+    <Nome>Gabinete NZXT H510</Nome>
+    <Codigo>CASE-NZX-011</Codigo>
+    <Valor>650.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>12</Id>
+    <Nome>Fonte Corsair 750W</Nome>
+    <Codigo>PSU-COR-012</Codigo>
+    <Valor>580.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>13</Id>
+    <Nome>Placa Mãe ASUS ROG</Nome>
+    <Codigo>MB-ASU-013</Codigo>
+    <Valor>1500.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>14</Id>
+    <Nome>Cooler CPU Noctua NH-D15</Nome>
+    <Codigo>COOL-NOC-014</Codigo>
+    <Valor>520.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>15</Id>
+    <Nome>HD Externo Seagate 2TB</Nome>
+    <Codigo>HDD-SEA-015</Codigo>
+    <Valor>380.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>16</Id>
+    <Nome>Impressora HP LaserJet</Nome>
+    <Codigo>PRT-HP-016</Codigo>
+    <Valor>1200.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>17</Id>
+    <Nome>Scanner Epson V600</Nome>
+    <Codigo>SCN-EPS-017</Codigo>
+    <Valor>2500.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>18</Id>
+    <Nome>Roteador TP-Link AX3000</Nome>
+    <Codigo>RTR-TPL-018</Codigo>
+    <Valor>680.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>19</Id>
+    <Nome>Switch Gigabit 8 Portas</Nome>
+    <Codigo>SW-TPL-019</Codigo>
+    <Valor>280.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>20</Id>
+    <Nome>Cabo HDMI 2.1 Premium</Nome>
+    <Codigo>CBL-HDM-020</Codigo>
+    <Valor>85.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>21</Id>
+    <Nome>Hub USB-C 7 em 1</Nome>
+    <Codigo>HUB-USB-021</Codigo>
+    <Valor>320.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>22</Id>
+    <Nome>Mousepad Gamer RGB</Nome>
+    <Codigo>PAD-RGB-022</Codigo>
+    <Valor>150.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>23</Id>
+    <Nome>Cadeira Gamer DXRacer</Nome>
+    <Codigo>CHR-DXR-023</Codigo>
+    <Valor>1800.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>24</Id>
+    <Nome>Mesa Gamer Ajustável</Nome>
+    <Codigo>DSK-GAM-024</Codigo>
+    <Valor>2200.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>25</Id>
+    <Nome>Suporte Monitor Duplo</Nome>
+    <Codigo>MNT-DUO-025</Codigo>
+    <Valor>380.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>26</Id>
+    <Nome>Luminária LED USB</Nome>
+    <Codigo>LMP-LED-026</Codigo>
+    <Valor>120.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>27</Id>
+    <Nome>Microfone Blue Yeti</Nome>
+    <Codigo>MIC-BLU-027</Codigo>
+    <Valor>850.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>28</Id>
+    <Nome>Câmera DSLR Canon EOS</Nome>
+    <Codigo>CAM-CAN-028</Codigo>
+    <Valor>4500.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>29</Id>
+    <Nome>Tripé Profissional Manfrotto</Nome>
+    <Codigo>TRP-MAN-029</Codigo>
+    <Valor>980.00</Valor>
+  </Produto>
+  <Produto>
+    <Id>30</Id>
+    <Nome>Estabilizador DJI Ronin</Nome>
+    <Codigo>STB-DJI-030</Codigo>
+    <Valor>3200.00</Valor>
+  </Produto>
+</ArrayOfProduto>

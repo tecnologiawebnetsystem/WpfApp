@@ -1,0 +1,204 @@
+<Window x:Class="WpfApp.Views.IncluirPedidoModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Incluir Pedido" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#2C3E50" Padding="20">
+            <StackPanel>
+                <TextBlock Text="Novo Pedido" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                <TextBlock x:Name="txtCliente" FontSize="14" Foreground="#BDC3C7" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" Margin="20" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="listaProdutos">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="White" Margin="0,0,0,10" Padding="15" CornerRadius="8"
+                                BorderBrush="#E0E0E0" BorderThickness="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <CheckBox Grid.Column="0" VerticalAlignment="Center" Margin="0,0,15,0"
+                                         IsChecked="{Binding Selecionado, Mode=TwoWay}"
+                                         Checked="ProdutoCheckBox_Changed"
+                                         Unchecked="ProdutoCheckBox_Changed"/>
+
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Nome}" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50"/>
+                                    <TextBlock FontSize="14" Foreground="#7F8C8D" Margin="0,5,0,0">
+                                        <Run Text="Código: "/>
+                                        <Run Text="{Binding Codigo}"/>
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,20,0">
+                                    <TextBlock Text="Qtd:" FontSize="14" Foreground="#7F8C8D" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                    
+                                    <Border BorderBrush="#BDC3C7" BorderThickness="1" CornerRadius="4" Background="White">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="-" Width="30" Height="30" 
+                                                    Background="#E74C3C" Foreground="White" 
+                                                    FontSize="16" FontWeight="Bold"
+                                                    BorderThickness="0" Cursor="Hand"
+                                                    Click="BtnDiminuir_Click"
+                                                    Tag="{Binding}">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="Button">
+                                                                    <Border Background="{TemplateBinding Background}" 
+                                                                            CornerRadius="4,0,0,4" 
+                                                                            Padding="0">
+                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#C0392B"/>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
+                                            
+                                            <TextBlock Text="{Binding Quantidade}" 
+                                                      Width="40" Height="30"
+                                                      TextAlignment="Center" 
+                                                      VerticalAlignment="Center"
+                                                      FontSize="14" FontWeight="SemiBold"
+                                                      Background="White" Foreground="#2C3E50"
+                                                      Padding="0,6,0,0"/>
+                                            
+                                            <Button Content="+" Width="30" Height="30" 
+                                                    Background="#27AE60" Foreground="White" 
+                                                    FontSize="16" FontWeight="Bold"
+                                                    BorderThickness="0" Cursor="Hand"
+                                                    Click="BtnAumentar_Click"
+                                                    Tag="{Binding}">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="Button">
+                                                                    <Border Background="{TemplateBinding Background}" 
+                                                                            CornerRadius="0,4,4,0" 
+                                                                            Padding="0">
+                                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#229954"/>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="3" VerticalAlignment="Center">
+                                    <TextBlock Text="Valor Unitário" FontSize="12" Foreground="#7F8C8D"/>
+                                    <TextBlock FontSize="16" FontWeight="Bold" Foreground="#27AE60" Margin="0,5,0,0">
+                                        <Run Text="R$ "/>
+                                        <Run Text="{Binding Valor, StringFormat=N2}"/>
+                                    </TextBlock>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="White" Padding="20" Margin="20,0,20,10" CornerRadius="8"
+                BorderBrush="#E0E0E0" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Resumo do Pedido" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50"/>
+                    <TextBlock x:Name="txtItens" Text="0 itens selecionados" FontSize="14" Foreground="#7F8C8D" Margin="0,5,0,0"/>
+                    <TextBlock Text="Status: Pendente" FontSize="14" Foreground="#F39C12" Margin="0,5,0,0" FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                    <TextBlock Text="Valor Total" FontSize="14" Foreground="#7F8C8D" TextAlignment="Right"/>
+                    <TextBlock x:Name="txtValorTotal" Text="R$ 0,00" FontSize="24" FontWeight="Bold" Foreground="#27AE60" Margin="0,5,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,0,20,20">
+            <Button Content="Cancelar" Width="120" Height="40" Margin="0,0,10,0"
+                    Background="#95A5A6" Foreground="White" FontSize="14" FontWeight="SemiBold"
+                    BorderThickness="0" Cursor="Hand" Click="BtnCancelar_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="15,10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#7F8C8D"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Content="Finalizar Pedido" Width="150" Height="40"
+                    Background="#27AE60" Foreground="White" FontSize="14" FontWeight="SemiBold"
+                    BorderThickness="0" Cursor="Hand" Click="BtnFinalizar_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="15,10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#229954"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPedido xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   Pedido 1: Pessoa 1, 1 produto 
+  <Pedido>
+    <Id>1</Id>
+    <PessoaId>1</PessoaId>
+    <DataVenda>2025-01-05T10:30:00</DataVenda>
+    <ValorTotal>3500.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Recebido</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>1</ProdutoId>
+        <NomeProduto>Notebook Dell Inspiron 15</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>3500.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 2: Pessoa 2, 1 produto 
+  <Pedido>
+    <Id>2</Id>
+    <PessoaId>2</PessoaId>
+    <DataVenda>2025-01-08T14:15:00</DataVenda>
+    <ValorTotal>550.00</ValorTotal>
+    <FormaPagamento>Dinheiro</FormaPagamento>
+    <Status>Pago</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>5</ProdutoId>
+        <NomeProduto>Webcam Logitech C920</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>550.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 3: Pessoa 3, 2 produtos 
+  <Pedido>
+    <Id>3</Id>
+    <PessoaId>3</PessoaId>
+    <DataVenda>2025-01-10T09:45:00</DataVenda>
+    <ValorTotal>1200.00</ValorTotal>
+    <FormaPagamento>Boleto</FormaPagamento>
+    <Status>Enviado</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>2</ProdutoId>
+        <NomeProduto>Mouse Logitech MX Master 3</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>450.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>7</ProdutoId>
+        <NomeProduto>SSD Samsung 1TB NVMe</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>750.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 4: Pessoa 4, 3 produtos 
+  <Pedido>
+    <Id>4</Id>
+    <PessoaId>4</PessoaId>
+    <DataVenda>2025-01-12T16:20:00</DataVenda>
+    <ValorTotal>4570.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Pendente</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>1</ProdutoId>
+        <NomeProduto>Notebook Dell Inspiron 15</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>3500.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>3</ProdutoId>
+        <NomeProduto>Teclado Mecânico Keychron K2</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>650.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>8</ProdutoId>
+        <NomeProduto>Memória RAM Corsair 16GB</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>420.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 5: Pessoa 5, 1 produto 
+  <Pedido>
+    <Id>5</Id>
+    <PessoaId>5</PessoaId>
+    <DataVenda>2025-01-15T11:00:00</DataVenda>
+    <ValorTotal>2200.00</ValorTotal>
+    <FormaPagamento>Dinheiro</FormaPagamento>
+    <Status>Recebido</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>10</ProdutoId>
+        <NomeProduto>Processador Intel i7-12700K</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2200.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 6: Pessoa 6, 5 produtos 
+  <Pedido>
+    <Id>6</Id>
+    <PessoaId>6</PessoaId>
+    <DataVenda>2025-01-18T13:30:00</DataVenda>
+    <ValorTotal>4660.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Pago</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>4</ProdutoId>
+        <NomeProduto>Monitor LG UltraWide 29"</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>1800.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>6</ProdutoId>
+        <NomeProduto>Headset HyperX Cloud II</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>480.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>9</ProdutoId>
+        <NomeProduto>Placa de Vídeo RTX 3060</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2800.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>11</ProdutoId>
+        <NomeProduto>Gabinete NZXT H510</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>650.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>15</ProdutoId>
+        <NomeProduto>HD Externo Seagate 2TB</NomeProduto>
+        <Quantidade>2</Quantidade>
+        <ValorUnitario>380.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 7: Pessoa 7, 2 produtos 
+  <Pedido>
+    <Id>7</Id>
+    <PessoaId>7</PessoaId>
+    <DataVenda>2025-01-20T15:45:00</DataVenda>
+    <ValorTotal>1260.00</ValorTotal>
+    <FormaPagamento>Boleto</FormaPagamento>
+    <Status>Enviado</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>12</ProdutoId>
+        <NomeProduto>Fonte Corsair 750W</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>580.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>18</ProdutoId>
+        <NomeProduto>Roteador TP-Link AX3000</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>680.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 8: Pessoa 8, 10 produtos 
+  <Pedido>
+    <Id>8</Id>
+    <PessoaId>8</PessoaId>
+    <DataVenda>2025-01-22T10:00:00</DataVenda>
+    <ValorTotal>13380.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Pendente</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>1</ProdutoId>
+        <NomeProduto>Notebook Dell Inspiron 15</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>3500.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>2</ProdutoId>
+        <NomeProduto>Mouse Logitech MX Master 3</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>450.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>3</ProdutoId>
+        <NomeProduto>Teclado Mecânico Keychron K2</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>650.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>4</ProdutoId>
+        <NomeProduto>Monitor LG UltraWide 29"</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>1800.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>5</ProdutoId>
+        <NomeProduto>Webcam Logitech C920</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>550.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>6</ProdutoId>
+        <NomeProduto>Headset HyperX Cloud II</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>480.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>7</ProdutoId>
+        <NomeProduto>SSD Samsung 1TB NVMe</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>750.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>8</ProdutoId>
+        <NomeProduto>Memória RAM Corsair 16GB</NomeProduto>
+        <Quantidade>2</Quantidade>
+        <ValorUnitario>420.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>9</ProdutoId>
+        <NomeProduto>Placa de Vídeo RTX 3060</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2800.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>10</ProdutoId>
+        <NomeProduto>Processador Intel i7-12700K</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2200.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 9: Pessoa 9, 1 produto 
+  <Pedido>
+    <Id>9</Id>
+    <PessoaId>9</PessoaId>
+    <DataVenda>2025-01-24T12:30:00</DataVenda>
+    <ValorTotal>85.00</ValorTotal>
+    <FormaPagamento>Dinheiro</FormaPagamento>
+    <Status>Recebido</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>20</ProdutoId>
+        <NomeProduto>Cabo HDMI 2.1 Premium</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>85.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 10: Pessoa 10, 4 produtos 
+  <Pedido>
+    <Id>10</Id>
+    <PessoaId>10</PessoaId>
+    <DataVenda>2025-01-26T14:00:00</DataVenda>
+    <ValorTotal>5020.00</ValorTotal>
+    <FormaPagamento>Boleto</FormaPagamento>
+    <Status>Pago</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>13</ProdutoId>
+        <NomeProduto>Placa Mãe ASUS ROG</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>1500.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>14</ProdutoId>
+        <NomeProduto>Cooler CPU Noctua NH-D15</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>520.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>16</ProdutoId>
+        <NomeProduto>Impressora HP LaserJet</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>1200.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>17</ProdutoId>
+        <NomeProduto>Scanner Epson V600</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2500.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 11: Pessoa 11, 1 produto 
+  <Pedido>
+    <Id>11</Id>
+    <PessoaId>11</PessoaId>
+    <DataVenda>2025-01-28T09:15:00</DataVenda>
+    <ValorTotal>150.00</ValorTotal>
+    <FormaPagamento>Dinheiro</FormaPagamento>
+    <Status>Enviado</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>22</ProdutoId>
+        <NomeProduto>Mousepad Gamer RGB</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>150.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 12: Pessoa 12, 3 produtos 
+  <Pedido>
+    <Id>12</Id>
+    <PessoaId>12</PessoaId>
+    <DataVenda>2025-01-30T11:45:00</DataVenda>
+    <ValorTotal>2360.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Recebido</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>19</ProdutoId>
+        <NomeProduto>Switch Gigabit 8 Portas</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>280.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>21</ProdutoId>
+        <NomeProduto>Hub USB-C 7 em 1</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>320.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>23</ProdutoId>
+        <NomeProduto>Cadeira Gamer DXRacer</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>1800.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 13: Pessoa 13, 7 produtos 
+  <Pedido>
+    <Id>13</Id>
+    <PessoaId>13</PessoaId>
+    <DataVenda>2025-02-01T13:20:00</DataVenda>
+    <ValorTotal>9830.00</ValorTotal>
+    <FormaPagamento>Boleto</FormaPagamento>
+    <Status>Pendente</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>24</ProdutoId>
+        <NomeProduto>Mesa Gamer Ajustável</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2200.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>25</ProdutoId>
+        <NomeProduto>Suporte Monitor Duplo</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>380.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>26</ProdutoId>
+        <NomeProduto>Luminária LED USB</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>120.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>27</ProdutoId>
+        <NomeProduto>Microfone Blue Yeti</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>850.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>28</ProdutoId>
+        <NomeProduto>Câmera DSLR Canon EOS</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>4500.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>29</ProdutoId>
+        <NomeProduto>Tripé Profissional Manfrotto</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>980.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>30</ProdutoId>
+        <NomeProduto>Estabilizador DJI Ronin</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>3200.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 14: Pessoa 14, 2 produtos 
+  <Pedido>
+    <Id>14</Id>
+    <PessoaId>14</PessoaId>
+    <DataVenda>2025-02-03T15:00:00</DataVenda>
+    <ValorTotal>500.00</ValorTotal>
+    <FormaPagamento>Dinheiro</FormaPagamento>
+    <Status>Pago</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>25</ProdutoId>
+        <NomeProduto>Suporte Monitor Duplo</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>380.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>26</ProdutoId>
+        <NomeProduto>Luminária LED USB</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>120.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 15: Pessoa 15, 1 produto 
+  <Pedido>
+    <Id>15</Id>
+    <PessoaId>15</PessoaId>
+    <DataVenda>2025-02-04T10:30:00</DataVenda>
+    <ValorTotal>850.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Enviado</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>27</ProdutoId>
+        <NomeProduto>Microfone Blue Yeti</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>850.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 16: Pessoa 16, 5 produtos 
+  <Pedido>
+    <Id>16</Id>
+    <PessoaId>16</PessoaId>
+    <DataVenda>2025-02-05T12:00:00</DataVenda>
+    <ValorTotal>6885.00</ValorTotal>
+    <FormaPagamento>Boleto</FormaPagamento>
+    <Status>Recebido</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>1</ProdutoId>
+        <NomeProduto>Notebook Dell Inspiron 15</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>3500.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>5</ProdutoId>
+        <NomeProduto>Webcam Logitech C920</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>550.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>10</ProdutoId>
+        <NomeProduto>Processador Intel i7-12700K</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>2200.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>15</ProdutoId>
+        <NomeProduto>HD Externo Seagate 2TB</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>380.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>20</ProdutoId>
+        <NomeProduto>Cabo HDMI 2.1 Premium</NomeProduto>
+        <Quantidade>3</Quantidade>
+        <ValorUnitario>85.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 17: Pessoa 17, 3 produtos 
+  <Pedido>
+    <Id>17</Id>
+    <PessoaId>17</PessoaId>
+    <DataVenda>2025-02-06T14:30:00</DataVenda>
+    <ValorTotal>2930.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Pendente</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>2</ProdutoId>
+        <NomeProduto>Mouse Logitech MX Master 3</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>450.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>4</ProdutoId>
+        <NomeProduto>Monitor LG UltraWide 29"</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>1800.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>6</ProdutoId>
+        <NomeProduto>Headset HyperX Cloud II</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>680.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 18: Pessoa 18, 1 produto 
+  <Pedido>
+    <Id>18</Id>
+    <PessoaId>18</PessoaId>
+    <DataVenda>2025-02-07T16:00:00</DataVenda>
+    <ValorTotal>4500.00</ValorTotal>
+    <FormaPagamento>Dinheiro</FormaPagamento>
+    <Status>Pago</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>28</ProdutoId>
+        <NomeProduto>Câmera DSLR Canon EOS</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>4500.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 19: Pessoa 19, 6 produtos 
+  <Pedido>
+    <Id>19</Id>
+    <PessoaId>19</PessoaId>
+    <DataVenda>2025-02-08T11:15:00</DataVenda>
+    <ValorTotal>6560.00</ValorTotal>
+    <FormaPagamento>Boleto</FormaPagamento>
+    <Status>Enviado</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>3</ProdutoId>
+        <NomeProduto>Teclado Mecânico Keychron K2</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>650.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>7</ProdutoId>
+        <NomeProduto>SSD Samsung 1TB NVMe</NomeProduto>
+        <Quantidade>2</Quantidade>
+        <ValorUnitario>750.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>11</ProdutoId>
+        <NomeProduto>Gabinete NZXT H510</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>650.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>14</ProdutoId>
+        <NomeProduto>Cooler CPU Noctua NH-D15</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>520.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>18</ProdutoId>
+        <NomeProduto>Roteador TP-Link AX3000</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>680.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>22</ProdutoId>
+        <NomeProduto>Mousepad Gamer RGB</NomeProduto>
+        <Quantidade>2</Quantidade>
+        <ValorUnitario>150.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+  
+   Pedido 20: Pessoa 20, 2 produtos 
+  <Pedido>
+    <Id>20</Id>
+    <PessoaId>20</PessoaId>
+    <DataVenda>2025-02-09T13:45:00</DataVenda>
+    <ValorTotal>4180.00</ValorTotal>
+    <FormaPagamento>Cartao</FormaPagamento>
+    <Status>Recebido</Status>
+    <Itens>
+      <ItemPedido>
+        <ProdutoId>29</ProdutoId>
+        <NomeProduto>Tripé Profissional Manfrotto</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>980.00</ValorUnitario>
+      </ItemPedido>
+      <ItemPedido>
+        <ProdutoId>30</ProdutoId>
+        <NomeProduto>Estabilizador DJI Ronin</NomeProduto>
+        <Quantidade>1</Quantidade>
+        <ValorUnitario>3200.00</ValorUnitario>
+      </ItemPedido>
+    </Itens>
+  </Pedido>
+</ArrayOfPedido>

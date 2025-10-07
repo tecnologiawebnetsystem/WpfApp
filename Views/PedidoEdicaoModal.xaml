@@ -1,0 +1,153 @@
+<Window x:Class="WpfApp.Views.PedidoEdicaoModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Editar Pedido" Height="500" Width="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA"
+        ResizeMode="CanResize"
+        MinHeight="400" MinWidth="500">
+
+    <Border Padding="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Cabeçalho mantido igual -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="Editar Pedido" 
+                           FontSize="24" 
+                           FontWeight="Bold" 
+                           Foreground="#2C3E50"/>
+                <TextBlock x:Name="txtPedidoId" 
+                           FontSize="14" 
+                           Foreground="#95A5A6" 
+                           Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <!-- Adicionado ScrollViewer para permitir rolagem -->
+            <ScrollViewer Grid.Row="1" 
+                         VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Disabled">
+                <Border Background="White" 
+                        CornerRadius="8" 
+                        Padding="20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="#000000" Opacity="0.08" BlurRadius="8" ShadowDepth="2"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        
+                        <!-- Forma de Pagamento -->
+                        <TextBlock Text="Forma de Pagamento" 
+                                   FontSize="14" 
+                                   FontWeight="SemiBold" 
+                                   Foreground="#2C3E50" 
+                                   Margin="0,0,0,8"/>
+                        <ComboBox x:Name="cmbFormaPagamento" 
+                                  FontSize="14" 
+                                  Padding="10" 
+                                  Margin="0,0,0,20">
+                            <ComboBoxItem Content="Não definido" Tag=""/>
+                            <ComboBoxItem Content="Dinheiro" Tag="Dinheiro"/>
+                            <ComboBoxItem Content="Cartão" Tag="Cartao"/>
+                            <ComboBoxItem Content="Boleto" Tag="Boleto"/>
+                        </ComboBox>
+
+                        <!-- Status do Pedido -->
+                        <TextBlock Text="Status do Pedido" 
+                                   FontSize="14" 
+                                   FontWeight="SemiBold" 
+                                   Foreground="#2C3E50" 
+                                   Margin="0,0,0,8"/>
+                        <ComboBox x:Name="cmbStatus" 
+                                  FontSize="14" 
+                                  Padding="10">
+                            <ComboBoxItem Content="Pendente" Tag="Pendente"/>
+                            <ComboBoxItem Content="Pago" Tag="Pago"/>
+                            <ComboBoxItem Content="Enviado" Tag="Enviado"/>
+                            <ComboBoxItem Content="Recebido" Tag="Recebido"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+
+            <!-- Botões mantidos iguais -->
+            <Grid Grid.Row="2" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" 
+                        Content="Cancelar" 
+                        Background="#95A5A6" 
+                        Foreground="White" 
+                        Padding="20,12" 
+                        FontSize="14" 
+                        FontWeight="SemiBold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Margin="0,0,10,0"
+                        Click="BtnCancelar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="6" 
+                                                Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                            VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#7F8C8D"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Grid.Column="1" 
+                        Content="Salvar" 
+                        Background="#27AE60" 
+                        Foreground="White" 
+                        Padding="20,12" 
+                        FontSize="14" 
+                        FontWeight="SemiBold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Margin="10,0,0,0"
+                        Click="BtnSalvar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="6" 
+                                                Padding="{TemplateBinding Padding}">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                            VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#229954"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

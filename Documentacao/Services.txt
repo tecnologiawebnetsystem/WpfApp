@@ -1,0 +1,352 @@
+═══════════════════════════════════════════════════════════════════════════════
+                            PASTA: SERVICES
+═══════════════════════════════════════════════════════════════════════════════
+
+📁 PARA QUE SERVE ESTA PASTA?
+─────────────────────────────────────────────────────────────────────────────
+A pasta "Services" contém classes que fornecem serviços específicos para a
+aplicação. Serviços são como "funcionários especializados" que executam tarefas
+específicas: salvar dados, buscar CEP, validar informações, etc.
+
+Pense nos Services como a "equipe de suporte" da aplicação.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVO: DataService.cs
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVE ESTE ARQUIVO?
+Este arquivo é responsável por SALVAR e CARREGAR dados em arquivos XML ou JSON.
+É como um "bibliotecário" que organiza e guarda os dados da aplicação.
+
+
+📌 CLASSE: DataService
+─────────────────────────────────────────────────────────────────────────────
+O que faz: Gerencia a persistência de dados (salvar e carregar).
+
+
+🔧 PROPRIEDADE: DataFormat (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Formato atual de dados ("XML" ou "JSON").
+Como funciona: Lê do arquivo App.config para saber qual formato usar.
+
+
+🔧 MÉTODO: GetDataPath(string fileName)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - fileName: Nome do arquivo (ex: "pessoas")
+
+Retorna: Caminho completo do arquivo com a extensão correta
+
+O que faz:
+  - Cria a pasta "Data" se ela não existir
+  - Adiciona a extensão .xml ou .json dependendo do formato escolhido
+  - Retorna o caminho completo: "Data/pessoas.xml" ou "Data/pessoas.json"
+
+Exemplo:
+  GetDataPath("pessoas") → "Data/pessoas.xml" (se formato for XML)
+  GetDataPath("pessoas") → "Data/pessoas.json" (se formato for JSON)
+
+
+🔧 MÉTODO: SaveData<T>(List<T> data, string fileName)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - data: Lista de objetos a serem salvos (pessoas, produtos ou pedidos)
+  - fileName: Nome do arquivo (ex: "pessoas")
+
+Retorna: nada (void)
+
+O que faz:
+  1. Determina o caminho do arquivo
+  2. Se o formato for XML:
+     - Usa XmlSerializer para converter os objetos em XML
+     - Salva no arquivo .xml
+  3. Se o formato for JSON:
+     - Usa JsonSerializer para converter os objetos em JSON
+     - Salva no arquivo .json com formatação bonita (indentação)
+
+Exemplo de uso:
+  SaveData(listaDePessoas, "pessoas")
+  → Salva todas as pessoas em Data/pessoas.xml ou Data/pessoas.json
+
+
+🔧 MÉTODO: LoadData<T>(string fileName)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - fileName: Nome do arquivo (ex: "pessoas")
+
+Retorna: Lista de objetos carregados (List<T>)
+
+O que faz:
+  1. Determina o caminho do arquivo
+  2. Se o arquivo não existir:
+     - Retorna uma lista vazia
+  3. Se o formato for XML:
+     - Usa XmlSerializer para ler o arquivo XML
+     - Converte de volta para objetos
+  4. Se o formato for JSON:
+     - Usa JsonSerializer para ler o arquivo JSON
+     - Converte de volta para objetos
+  5. Se der erro:
+     - Retorna uma lista vazia
+
+Exemplo de uso:
+  var pessoas = LoadData<Pessoa>("pessoas")
+  → Carrega todas as pessoas do arquivo
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVO: CepService.cs
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVE ESTE ARQUIVO?
+Este arquivo busca informações de endereço na internet usando o CEP. Ele se
+conecta à API ViaCEP (serviço gratuito do governo) para obter dados de
+logradouro, bairro, cidade e estado.
+
+
+📌 CLASSE: CepService
+─────────────────────────────────────────────────────────────────────────────
+O que faz: Busca endereços pela internet usando o CEP.
+
+
+🔧 CAMPO: _httpClient (HttpClient)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Cliente HTTP para fazer requisições à internet.
+Por que existe: Para se comunicar com a API ViaCEP.
+
+
+🔧 CONSTRUTOR: CepService()
+───────────────────────���─────────────────────────────────────────────────────
+O que faz: Inicializa o cliente HTTP quando a classe é criada.
+
+
+🔧 MÉTODO: BuscarEnderecoPorCepAsync(string cep)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - cep: CEP a ser buscado (ex: "01310-100")
+
+Retorna: Objeto CepResponse com os dados do endereço (ou null se não encontrar)
+
+O que faz:
+  1. Remove caracteres especiais do CEP (deixa só números)
+  2. Valida se o CEP tem 8 dígitos
+  3. Monta a URL da API: https://viacep.com.br/ws/{cep}/json/
+  4. Faz uma requisição HTTP GET para a API
+  5. Se a resposta for sucesso:
+     - Converte o JSON recebido em objeto CepResponse
+     - Retorna o objeto com os dados
+  6. Se der erro:
+     - Retorna null
+
+Exemplo de uso:
+  var endereco = await BuscarEnderecoPorCepAsync("01310100")
+  → Retorna: Logradouro="Avenida Paulista", Bairro="Bela Vista", etc.
+
+Observação: O método é ASYNC (assíncrono), ou seja, não trava a interface
+enquanto busca os dados na internet.
+
+
+📌 CLASSE: CepResponse
+─────────────────────────────────────────────────────────────────────────────
+O que faz: Representa a resposta da API ViaCEP.
+
+
+🔧 PROPRIEDADE: Cep (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: CEP retornado pela API.
+Exemplo: "01310-100"
+
+
+🔧 PROPRIEDADE: Logradouro (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Nome da rua/avenida.
+Exemplo: "Avenida Paulista"
+
+
+🔧 PROPRIEDADE: Complemento (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Complemento do endereço (geralmente vazio).
+
+
+🔧 PROPRIEDADE: Bairro (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Nome do bairro.
+Exemplo: "Bela Vista"
+
+
+🔧 PROPRIEDADE: Localidade (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Nome da cidade.
+Exemplo: "São Paulo"
+
+
+🔧 PROPRIEDADE: Uf (string)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Sigla do estado.
+Exemplo: "SP"
+
+
+🔧 PROPRIEDADE: Erro (bool)
+─────────────────────────────────────────────────────────────────────────────
+O que é: Indica se houve erro na busca.
+Valores: true (CEP não encontrado) ou false (CEP encontrado)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVO: ValidationService.cs
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVE ESTE ARQUIVO?
+Este arquivo valida informações antes de salvar no sistema. Ele verifica se
+CPF é válido, se e-mail tem formato correto, se campos obrigatórios estão
+preenchidos, etc.
+
+
+📌 CLASSE: ValidationService
+─────────────────────────────────────────────────────────────────────────────
+O que faz: Valida dados antes de salvar.
+
+
+🔧 MÉTODO: ValidarCpf(string cpf)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - cpf: CPF a ser validado (ex: "123.456.789-00")
+
+Retorna: true (CPF válido) ou false (CPF inválido)
+
+O que faz:
+  1. Remove caracteres especiais (deixa só números)
+  2. Verifica se tem 11 dígitos
+  3. Verifica se não é uma sequência repetida (111.111.111-11 é inválido)
+  4. Calcula o primeiro dígito verificador
+  5. Calcula o segundo dígito verificador
+  6. Compara os dígitos calculados com os dígitos informados
+  7. Retorna true se os dígitos conferem, false caso contrário
+
+Algoritmo: Usa o algoritmo oficial da Receita Federal para validar CPF.
+
+Exemplo:
+  ValidarCpf("123.456.789-09") → true (CPF válido)
+  ValidarCpf("111.111.111-11") → false (sequência repetida)
+  ValidarCpf("123.456.789-00") → false (dígitos verificadores errados)
+
+
+🔧 MÉTODO: ValidarEmail(string email)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - email: E-mail a ser validado (ex: "joao@email.com")
+
+Retorna: true (e-mail válido) ou false (e-mail inválido)
+
+O que faz:
+  1. Verifica se o e-mail não está vazio
+  2. Usa uma expressão regular (regex) para validar o formato
+  3. Formato válido: texto@dominio.extensao
+
+Exemplos:
+  ValidarEmail("joao@email.com") → true
+  ValidarEmail("maria.silva@empresa.com.br") → true
+  ValidarEmail("invalido") → false (falta @)
+  ValidarEmail("@email.com") → false (falta texto antes do @)
+
+
+🔧 MÉTODO: ValidarTelefone(string telefone)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - telefone: Telefone a ser validado (ex: "(11) 98765-4321")
+
+Retorna: true (telefone válido) ou false (telefone inválido)
+
+O que faz:
+  1. Remove caracteres especiais (deixa só números)
+  2. Verifica se tem 10 ou 11 dígitos (fixo ou celular)
+
+Formatos aceitos:
+  - (11) 98765-4321 → 11 dígitos (celular)
+  - (11) 3456-7890 → 10 dígitos (fixo)
+
+
+🔧 MÉTODO: ValidarCep(string cep)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - cep: CEP a ser validado (ex: "01310-100")
+
+Retorna: true (CEP válido) ou false (CEP inválido)
+
+O que faz:
+  1. Remove caracteres especiais (deixa só números)
+  2. Verifica se tem exatamente 8 dígitos
+
+Exemplo:
+  ValidarCep("01310-100") → true
+  ValidarCep("12345") → false (menos de 8 dígitos)
+
+
+🔧 MÉTODO: ValidarPessoa(Pessoa pessoa)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - pessoa: Objeto Pessoa a ser validado
+
+Retorna: Tupla (bool sucesso, string mensagem)
+  - sucesso: true se válido, false se inválido
+  - mensagem: Mensagem de erro (se houver)
+
+O que faz:
+  1. Verifica se o nome está preenchido
+  2. Valida o CPF usando ValidarCpf()
+  3. Valida o e-mail usando ValidarEmail()
+  4. Valida o telefone usando ValidarTelefone()
+  5. Valida o CEP usando ValidarCep()
+  6. Retorna (true, "") se tudo estiver válido
+  7. Retorna (false, "mensagem de erro") se algo estiver inválido
+
+Exemplo:
+  var (valido, erro) = ValidarPessoa(pessoa)
+  if (!valido) {
+    MessageBox.Show(erro) // Mostra o erro
+  }
+
+
+🔧 MÉTODO: ValidarProduto(Produto produto)
+─────────────────────────────────────────────────────────────────────────────
+Parâmetros:
+  - produto: Objeto Produto a ser validado
+
+Retorna: Tupla (bool sucesso, string mensagem)
+
+O que faz:
+  1. Verifica se o nome está preenchido
+  2. Verifica se o preço é maior que zero
+  3. Verifica se o estoque é maior ou igual a zero
+  4. Retorna (true, "") se tudo estiver válido
+  5. Retorna (false, "mensagem de erro") se algo estiver inválido
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                            RESUMO DA PASTA
+═══════════════════════════════════════════════════════════════════════════════
+
+Os Services são a "camada de negócios" da aplicação. Eles executam tarefas
+específicas e complexas, isolando essa lógica do resto do código.
+
+Vantagens de usar Services:
+  ✓ Reutilização: Vários ViewModels podem usar o mesmo serviço
+  ✓ Manutenção: Lógica complexa fica isolada e organizada
+  ✓ Testabilidade: Fácil testar os serviços separadamente
+  ✓ Separação de responsabilidades: Cada serviço tem uma função específica
+
+Serviços implementados:
+  - DataService: Persistência de dados (salvar/carregar)
+  - CepService: Integração com API externa (ViaCEP)
+  - ValidationService: Validações de dados
+
+Estes serviços trabalham juntos para garantir que:
+  ✓ Os dados sejam salvos corretamente
+  ✓ Os endereços sejam buscados automaticamente
+  ✓ Apenas dados válidos sejam aceitos no sistema

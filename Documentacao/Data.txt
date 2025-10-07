@@ -1,0 +1,180 @@
+═══════════════════════════════════════════════════════════════════════════════
+                            PASTA: DATA
+═══════════════════════════════════════════════════════════════════════════════
+
+📁 PARA QUE SERVE ESTA PASTA?
+─────────────────────────────────────────────────────────────────────────────
+A pasta "Data" armazena os arquivos de dados da aplicação. Neste projeto, os
+dados são salvos em formato XML ou JSON, dependendo da escolha do usuário.
+
+Estes arquivos funcionam como um "banco de dados simples" onde todas as
+informações cadastradas (pessoas, produtos, pedidos) são armazenadas.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVO: pessoas.xml
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVE ESTE ARQUIVO?
+Este arquivo armazena todos os dados das pessoas cadastradas no sistema.
+
+Estrutura do arquivo:
+  - Cada pessoa tem: Id, Nome, CPF, Email, Telefone, CEP, Logradouro, Número,
+    Complemento, Bairro, Cidade, Estado
+
+Exemplo de conteúdo:
+  <ArrayOfPessoa>
+    <Pessoa>
+      <Id>1</Id>
+      <Nome>João Silva</Nome>
+      <Cpf>123.456.789-00</Cpf>
+      <Email>joao@email.com</Email>
+      <Telefone>(11) 98765-4321</Telefone>
+      <Cep>01310-100</Cep>
+      <Logradouro>Avenida Paulista</Logradouro>
+      <Numero>1000</Numero>
+      <Complemento>Apto 101</Complemento>
+      <Bairro>Bela Vista</Bairro>
+      <Cidade>São Paulo</Cidade>
+      <Estado>SP</Estado>
+    </Pessoa>
+  </ArrayOfPessoa>
+
+Como funciona:
+  - Quando você cadastra uma pessoa, ela é adicionada a este arquivo
+  - Quando você edita uma pessoa, o arquivo é atualizado
+  - Quando você exclui uma pessoa, ela é removida do arquivo
+  - Quando você abre o sistema, os dados são carregados deste arquivo
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVO: produtos.xml
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVE ESTE ARQUIVO?
+Este arquivo armazena todos os dados dos produtos cadastrados no sistema.
+
+Estrutura do arquivo:
+  - Cada produto tem: Id, Nome, Descrição, Preço, Estoque
+
+Exemplo de conteúdo:
+  <ArrayOfProduto>
+    <Produto>
+      <Id>1</Id>
+      <Nome>Notebook Dell</Nome>
+      <Descricao>Notebook Dell Inspiron 15, 8GB RAM, 256GB SSD</Descricao>
+      <Preco>3500.00</Preco>
+      <Estoque>10</Estoque>
+    </Produto>
+  </ArrayOfProduto>
+
+Como funciona:
+  - Quando você cadastra um produto, ele é adicionado a este arquivo
+  - Quando você edita um produto, o arquivo é atualizado
+  - Quando você exclui um produto, ele é removido do arquivo
+  - Quando você abre o sistema, os dados são carregados deste arquivo
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVO: pedidos.xml
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVE ESTE ARQUIVO?
+Este arquivo armazena todos os pedidos realizados no sistema.
+
+Estrutura do arquivo:
+  - Cada pedido tem: Id, Data, Cliente (Pessoa), Itens (lista de produtos),
+    ValorTotal
+
+Exemplo de conteúdo:
+  <ArrayOfPedido>
+    <Pedido>
+      <Id>1</Id>
+      <Data>2025-01-15T10:30:00</Data>
+      <Cliente>
+        <Id>1</Id>
+        <Nome>João Silva</Nome>
+        <Cpf>123.456.789-00</Cpf>
+         outros dados do cliente 
+      </Cliente>
+      <Itens>
+        <PedidoItem>
+          <Produto>
+            <Id>1</Id>
+            <Nome>Notebook Dell</Nome>
+            <Preco>3500.00</Preco>
+          </Produto>
+          <Quantidade>2</Quantidade>
+          <PrecoUnitario>3500.00</PrecoUnitario>
+          <Subtotal>7000.00</Subtotal>
+        </PedidoItem>
+      </Itens>
+      <ValorTotal>7000.00</ValorTotal>
+    </Pedido>
+  </ArrayOfPedido>
+
+Como funciona:
+  - Quando você cria um pedido, ele é adicionado a este arquivo
+  - Quando você exclui um pedido, ele é removido do arquivo
+  - Quando você abre o sistema, os dados são carregados deste arquivo
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+
+📄 ARQUIVOS .json (pessoas.json, produtos.json, pedidos.json)
+─────────────────────────────────────────────────────────────────────────────
+
+🎯 PARA QUE SERVEM ESTES ARQUIVOS?
+Estes arquivos têm a MESMA função dos arquivos .xml, mas usam o formato JSON
+ao invés de XML.
+
+O formato JSON é mais moderno e mais fácil de ler para humanos.
+
+Exemplo de conteúdo (pessoas.json):
+  [
+    {
+      "Id": 1,
+      "Nome": "João Silva",
+      "Cpf": "123.456.789-00",
+      "Email": "joao@email.com",
+      "Telefone": "(11) 98765-4321",
+      "Cep": "01310-100",
+      "Logradouro": "Avenida Paulista",
+      "Numero": "1000",
+      "Complemento": "Apto 101",
+      "Bairro": "Bela Vista",
+      "Cidade": "São Paulo",
+      "Estado": "SP"
+    }
+  ]
+
+Como o sistema escolhe entre XML e JSON:
+  - No topo da tela principal, há um seletor "Formato de Dados"
+  - Se você escolher "XML", o sistema usa os arquivos .xml
+  - Se você escolher "JSON", o sistema usa os arquivos .json
+  - A escolha é salva no arquivo App.config
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                            RESUMO DA PASTA
+═══════════════════════════════════════════════════════════════════════════════
+
+A pasta Data é o "coração" do armazenamento da aplicação. Todos os dados
+cadastrados são salvos aqui, seja em formato XML ou JSON.
+
+Vantagens deste sistema:
+  ✓ Não precisa de banco de dados instalado
+  ✓ Fácil de fazer backup (basta copiar os arquivos)
+  ✓ Fácil de visualizar e editar manualmente se necessário
+  ✓ Portátil (pode copiar para outro computador)
+
+Desvantagens:
+  ✗ Não é adequado para grandes volumes de dados
+  ✗ Não tem recursos avançados de banco de dados (índices, consultas complexas)
+  ✗ Pode ter problemas de concorrência (múltiplos usuários ao mesmo tempo)

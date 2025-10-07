@@ -1,0 +1,314 @@
+<Window x:Class="WpfApp.Views.NovoPedidoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Novo Pedido" Height="750" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8F9FA">
+    
+    <Window.Resources>
+         Estilo global para forçar campos editáveis 
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="BorderBrush" Value="#DEE2E6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="BorderBrush" Value="#DEE2E6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,10"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+         Header 
+        <Border Grid.Row="0" Background="#2C3E50" Padding="25,20">
+            <StackPanel>
+                <TextBlock Text="Novo Pedido" FontSize="24" FontWeight="Bold" 
+                          Foreground="White" Margin="0,0,0,5"/>
+                <TextBlock Text="Preencha os dados do pedido" 
+                          FontSize="13" Foreground="#BDC3C7"/>
+            </StackPanel>
+        </Border>
+
+         TabControl 
+        <TabControl x:Name="tabControl" Grid.Row="1" Margin="20" BorderThickness="0">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border Name="Border" Background="Transparent" 
+                                       BorderThickness="0,0,0,3" BorderBrush="Transparent"
+                                       Padding="20,12" Margin="0,0,5,0">
+                                    <ContentPresenter ContentSource="Header" 
+                                                    HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#3498DB"/>
+                                        <Setter Property="Foreground" Value="#2C3E50"/>
+                                        <Setter Property="FontWeight" Value="SemiBold"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter Property="Foreground" Value="#7F8C8D"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#F8F9FA"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+
+             Tab: Selecionar Cliente 
+            <TabItem Header="1. Cliente" FontSize="14">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Border Background="White" CornerRadius="8" Padding="30" Margin="0,20,0,0">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#000" Opacity="0.05" BlurRadius="10" ShadowDepth="2"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Text="Selecione o Cliente" FontSize="18" FontWeight="Bold" 
+                                      Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+                            <TextBlock Text="Cliente *" FontWeight="SemiBold" Foreground="#2C3E50" 
+                                      Margin="0,0,0,8" FontSize="14"/>
+                            <ComboBox x:Name="cmbCliente" Height="45"
+                                     DisplayMemberPath="Nome"
+                                     SelectedValuePath="Id"
+                                     SelectedValue="{Binding PessoaId}"
+                                     Foreground="Black" Background="White" IsEnabled="True"/>
+
+                            <TextBlock Text="* Campo obrigatório" FontSize="12" Foreground="#E74C3C" 
+                                      Margin="0,30,0,0" FontStyle="Italic"/>
+                        </StackPanel>
+                    </Border>
+                </ScrollViewer>
+            </TabItem>
+
+             Tab: Adicionar Produtos 
+            <TabItem Header="2. Produtos" FontSize="14">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Border Background="White" CornerRadius="8" Padding="30" Margin="0,20,0,0">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#000" Opacity="0.05" BlurRadius="10" ShadowDepth="2"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Text="Adicionar Produtos" FontSize="18" FontWeight="Bold" 
+                                      Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+                            <Grid Margin="0,0,0,20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                    <TextBlock Text="Produto *" FontWeight="SemiBold" Foreground="#2C3E50" 
+                                              Margin="0,0,0,8" FontSize="14"/>
+                                    <ComboBox x:Name="cmbProduto" Height="45"
+                                             DisplayMemberPath="Nome"
+                                             SelectedValuePath="Id"
+                                             Foreground="Black" Background="White" IsEnabled="True"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                                    <TextBlock Text="Quantidade *" FontWeight="SemiBold" Foreground="#2C3E50" 
+                                              Margin="0,0,0,8" FontSize="14"/>
+                                    <TextBox x:Name="txtQuantidade" Height="45" Text="1"
+                                            Foreground="Black" Background="White" IsEnabled="True"/>
+                                </StackPanel>
+
+                                <Button Grid.Column="2" Content="Adicionar" Width="120" Height="45"
+                                       Background="#27AE60" Foreground="White" FontWeight="SemiBold"
+                                       BorderThickness="0" Cursor="Hand" Margin="0,28,0,0"
+                                       Click="BtnAdicionarProduto_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#229954"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </Grid>
+
+                            <TextBlock Text="Produtos Adicionados" FontWeight="SemiBold" Foreground="#2C3E50" 
+                                      Margin="0,20,0,10" FontSize="14"/>
+                            
+                            <DataGrid x:Name="dgItens" AutoGenerateColumns="False" 
+                                     CanUserAddRows="False" IsReadOnly="True"
+                                     GridLinesVisibility="None" HeadersVisibility="Column"
+                                     BorderThickness="1" BorderBrush="#DEE2E6"
+                                     RowHeight="45" MaxHeight="300">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Produto" Binding="{Binding NomeProduto}" Width="*"/>
+                                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="100"/>
+                                    <DataGridTextColumn Header="Valor Unit." Binding="{Binding ValorUnitario, StringFormat=C}" Width="120"/>
+                                    <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal, StringFormat=C}" Width="120"/>
+                                    <DataGridTemplateColumn Header="Ações" Width="100">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Content="Remover" Background="#E74C3C" Foreground="White"
+                                                       BorderThickness="0" Cursor="Hand" Padding="10,5"
+                                                       Click="BtnRemoverProduto_Click">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button">
+                                                            <Setter Property="Template">
+                                                                <Setter.Value>
+                                                                    <ControlTemplate TargetType="Button">
+                                                                        <Border Background="{TemplateBinding Background}" CornerRadius="4">
+                                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                        </Border>
+                                                                    </ControlTemplate>
+                                                                </Setter.Value>
+                                                            </Setter>
+                                                            <Style.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter Property="Background" Value="#C0392B"/>
+                                                                </Trigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <Border Background="#EBF5FB" CornerRadius="6" Padding="20" Margin="0,20,0,0">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Text="Valor Total: " FontSize="18" FontWeight="SemiBold" 
+                                              Foreground="#2C3E50" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="txtValorTotal" Text="R$ 0,00" FontSize="24" FontWeight="Bold" 
+                                              Foreground="#27AE60" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </ScrollViewer>
+            </TabItem>
+
+             Tab: Forma de Pagamento 
+            <TabItem Header="3. Pagamento" FontSize="14">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Border Background="White" CornerRadius="8" Padding="30" Margin="0,20,0,0">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#000" Opacity="0.05" BlurRadius="10" ShadowDepth="2"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Text="Forma de Pagamento" FontSize="18" FontWeight="Bold" 
+                                      Foreground="#2C3E50" Margin="0,0,0,20"/>
+
+                            <TextBlock Text="Selecione a forma de pagamento *" FontWeight="SemiBold" 
+                                      Foreground="#2C3E50" Margin="0,0,0,15" FontSize="14"/>
+
+                            <StackPanel x:Name="pnlFormaPagamento">
+                                <RadioButton x:Name="rbDinheiro" Content="Dinheiro" GroupName="Pagamento"
+                                           FontSize="16" Margin="0,0,0,15" Foreground="#2C3E50" IsChecked="True"/>
+                                <RadioButton x:Name="rbCartao" Content="Cartão de Crédito/Débito" GroupName="Pagamento"
+                                           FontSize="16" Margin="0,0,0,15" Foreground="#2C3E50"/>
+                                <RadioButton x:Name="rbBoleto" Content="Boleto Bancário" GroupName="Pagamento"
+                                           FontSize="16" Foreground="#2C3E50"/>
+                            </StackPanel>
+
+                            <TextBlock Text="* Campo obrigatório" FontSize="12" Foreground="#E74C3C" 
+                                      Margin="0,30,0,0" FontStyle="Italic"/>
+                        </StackPanel>
+                    </Border>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+
+         Footer com botões 
+        <Border Grid.Row="2" Background="White" BorderThickness="0,1,0,0" BorderBrush="#DEE2E6" Padding="25,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Cancelar" Width="140" Height="45"
+                       Background="#95A5A6" Foreground="White" FontWeight="SemiBold"
+                       BorderThickness="0" Cursor="Hand" FontSize="14"
+                       HorizontalAlignment="Left"
+                       Click="BtnCancelar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#7F8C8D"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button Grid.Column="1" Content="Finalizar Pedido" Width="180" Height="45"
+                       Background="#27AE60" Foreground="White" FontWeight="SemiBold"
+                       BorderThickness="0" Cursor="Hand" FontSize="14"
+                       Click="BtnSalvar_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#229954"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,5 +1,3 @@
-# Sistema de Gestão Profissional
-
 Fala pessoal! Esse aqui é um sistema completo de gerenciamento feito em WPF.
 
 ## Tecnologias que utilizei.
